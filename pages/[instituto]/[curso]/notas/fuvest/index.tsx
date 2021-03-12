@@ -6,6 +6,7 @@ import NotaTable from "../../../../../src/components/NotaTable"
 import { getData } from "dataprovider/lib";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { CursoEntity, InstitutoEntity, ManualDoVestibulandoEntity, NotaFuvestEntity } from "core/src/Entity";
+import Layout from "../../../../../src/components/Layout";
 
 
 type FuvestType = {
@@ -15,14 +16,14 @@ type FuvestType = {
 }
 
 const Fuvest = ({ notas, curso, instituto }: FuvestType) => (
-  <Container maxWidth="lg">
+  <Layout>
     <Box my={4}>
       <Typography variant="h4" component="h1" gutterBottom>
         {instituto.nome} - {curso.nome}
       </Typography>
     </Box>
     <NotaTable notas={notas} />
-  </Container>
+  </Layout>
 );
 export default Fuvest;
 
