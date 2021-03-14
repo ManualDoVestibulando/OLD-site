@@ -1,20 +1,18 @@
-import Container from '@material-ui/core/Container';
-import Header from '../Header'
-import Footer from '../Footer'
+import Container from "@material-ui/core/Container";
+import Header from "../Header";
+import Footer from "../Footer";
 
 type LayoutType = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-const Layout = ({children} : LayoutType) => (
+const Layout = ({ children }: LayoutType) => (
   <footer>
-      <Header />
+    {/* <Header /> */}
     <Container maxWidth="lg">
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </Container>
-    <Footer />
+    {/* <Footer /> */}
   </footer>
-)
-export default Layout
+);
+export default Layout;
