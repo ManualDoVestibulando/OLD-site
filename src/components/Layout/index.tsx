@@ -8,7 +8,7 @@ type LayoutType = {
 
 const Layout = ({ children }: LayoutType) => (
   <footer>
-    {/* <Header /> */}
+    <Header />
     <Container maxWidth="lg">
       <main>{children}</main>
     </Container>

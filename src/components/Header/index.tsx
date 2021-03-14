@@ -1,26 +1,23 @@
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Logo from "../Logo";
+import NextLink from "next/link";
+import Link from "@material-ui/core/Link";
+import AppBar from "@material-ui/core/AppBar";
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: {
+  appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
-    background: theme.palette.primary.main
+  },
+  toolbar: {
+    flexWrap: "wrap",
   },
   toolbarTitle: {
-    flex: 1,
-    color: theme.palette.common.white
+    flexGrow: 1,
   },
-  toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
-  },
-  toolbarLink: {
-    padding: theme.spacing(1),
-    flexShrink: 0,
+  link: {
+    margin: theme.spacing(1, 1.5),
+    cursor: "pointer",
   },
 }));
 
@@ -28,22 +25,17 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <header>
+    <AppBar elevation={0} color="default" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="center"
-          noWrap
-          className={classes.toolbarTitle}
-        >
-          Manual do Vestibulando
-        </Typography>
-        <IconButton>
-          <SearchIcon />
-        </IconButton>
+        <Logo className={classes.toolbarTitle} />
+        <nav>
+          <NextLink href="#">
+            <Link variant="button" color="textPrimary" className={classes.link}>
+              Pesquisar Cursos
+            </Link>
+          </NextLink>
+        </nav>
       </Toolbar>
-    </header>
+    </AppBar>
   );
 }
