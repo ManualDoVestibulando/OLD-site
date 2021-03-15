@@ -6,6 +6,7 @@
     "@material-ui/core": "latest",
     "@material-ui/data-grid": "^4.0.0-alpha.22",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "clsx": "latest",
     "core": "https://github.com/ManualDoVestibulando/core",
     "dataprovider": "https://github.com/ManualDoVestibulando/dataprovider",

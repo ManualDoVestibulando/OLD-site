@@ -7,12 +7,12 @@ type LayoutType = {
 };
 
 const Layout = ({ children }: LayoutType) => (
-  <footer>
+  <>
     <Header />
     <Container maxWidth="lg">
       <main>{children}</main>
     </Container>
     {/* <Footer /> */}
-  </footer>
+  </>
 );
 export default Layout;

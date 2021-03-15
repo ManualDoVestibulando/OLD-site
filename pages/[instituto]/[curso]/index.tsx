@@ -73,8 +73,8 @@ const CursoPage = ({ curso, instituto }: CursoPageType) => {
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4} justify="center">
           {cards.map((c) => (
-            <NextLink href={c.title}>
-              <Grid item key={c.href} xs={12} sm={6} md={4}>
+            <NextLink key={c.href} href={c.href}>
+              <Grid item xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">

@@ -25,11 +25,16 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <AppBar elevation={0} color="default" className={classes.appBar}>
+    <AppBar
+      elevation={0}
+      position="static"
+      color="default"
+      className={classes.appBar}
+    >
       <Toolbar className={classes.toolbar}>
         <Logo className={classes.toolbarTitle} />
         <nav>
-          <NextLink href="#">
+          <NextLink href="/pesquisar">
             <Link variant="button" color="textPrimary" className={classes.link}>
               Pesquisar Cursos
             </Link>

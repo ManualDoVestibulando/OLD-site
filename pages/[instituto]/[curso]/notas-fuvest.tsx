@@ -22,7 +22,7 @@ const FuvestPage = ({ notas, curso, instituto }: FuvestPageType) => (
   <Layout>
     <Box my={4}>
       <Typography variant="h4" component="h1" gutterBottom>
-        {instituto.nome} - {curso.nome}
+        {curso.nome} ({instituto.sigla}) - Fuvest
       </Typography>
     </Box>
     <NotaTable notas={notas} />
