@@ -10,6 +10,7 @@ import NextLink from "next/link";
 import { getData } from "dataprovider/lib";
 import { GetStaticProps, GetStaticPaths } from "next";
 import {
+  CampusEntity,
   CursoEntity,
   InstitutoEntity,
   ManualDoVestibulandoEntity,
@@ -18,8 +19,8 @@ import Layout from "../../src/components/Layout";
 import { makeStyles } from "@material-ui/core";
 
 type CursoPageType = {
-  curso: CursoEntity;
   instituto: InstitutoEntity;
+  campus: CampusEntity;
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -40,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CursoPage = ({ instituto }: CursoPageType) => {
+const CursoPage = ({ instituto, campus }: CursoPageType) => {
   const classes = useStyles();
   const cards = instituto.cursos.map((curso) => ({
     title: curso.nome,
-    href: `/${instituto.nome}/${curso.nome}`,
+    href: `/${instituto.sigla}/${curso.nome}`,
     description: curso.descrição.slice(0, 80) + "...",
   }));
   return (
@@ -57,7 +58,7 @@ const CursoPage = ({ instituto }: CursoPageType) => {
           color="textPrimary"
           gutterBottom
         >
-          {instituto.nome} ({instituto.campus})
+          {instituto.sigla} ({campus.nome})
         </Typography>
         <Typography
           variant="h5"
@@ -98,22 +99,28 @@ export default CursoPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data: ManualDoVestibulandoEntity = await getData();
-  const instituto = data.institutos.find(
-    (instituto) => instituto.nome == params.instituto
+  const campusInstitutos = data.campus.flatMap((campus) => campus.institutos);
+  const instituto = campusInstitutos.find(
+    (instituto) => instituto.sigla == params.instituto
+  );
+  const campus = data.campus.find((campus) =>
+    campus.institutos.includes(instituto)
   );
 
   return {
     props: {
       instituto,
+      campus,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: ManualDoVestibulandoEntity = await getData();
-  const unidadesCursosList = data.institutos.flatMap((instituto) =>
+  const campusInstitutos = data.campus.flatMap((campus) => campus.institutos);
+  const unidadesCursosList = campusInstitutos.flatMap((instituto) =>
     instituto.cursos.flatMap((curso) => ({
-      instituto: instituto.nome,
+      instituto: instituto.sigla,
       curso: curso.nome,
     }))
   );

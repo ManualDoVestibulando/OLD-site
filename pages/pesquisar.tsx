@@ -42,11 +42,11 @@ const PesquisaPage = ({ options }: PesquisaPageType) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data: ManualDoVestibulandoEntity = await getData();
-  const institutos = data.institutos;
+  const institutos = data.campus.flatMap((campus) => campus.institutos);
   const options: SearchOption[] = institutos.flatMap((instituto) =>
     instituto.cursos.flatMap((curso) => ({
-      title: `${curso.nome} - ${instituto.nome}`,
-      href: `${instituto.nome}/${curso.nome}`,
+      title: `${curso.nome} - ${instituto.sigla}`,
+      href: `${instituto.sigla}/${curso.nome}`,
     }))
   );
 

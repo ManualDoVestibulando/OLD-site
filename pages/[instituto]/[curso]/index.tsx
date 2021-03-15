@@ -45,7 +45,7 @@ const CursoPage = ({ curso, instituto }: CursoPageType) => {
   const cards = [
     {
       title: "Notas Fuvest",
-      href: `/${instituto.nome}/${curso.nome}/notas-fuvest`,
+      href: `/${instituto.sigla}/${curso.nome}/notas-fuvest`,
       description: "Notas e classificações dos ingressantes pela fuvest",
     },
   ];
@@ -100,8 +100,9 @@ export default CursoPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data: ManualDoVestibulandoEntity = await getData();
-  const instituto = data.institutos.find(
-    (instituto) => instituto.nome == params.instituto
+  const campusInstitutos = data.campus.flatMap((campus) => campus.institutos);
+  const instituto = campusInstitutos.find(
+    (instituto) => instituto.sigla == params.instituto
   );
   const curso = instituto.cursos.find((curso) => curso.nome == params.curso);
 
@@ -115,9 +116,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data: ManualDoVestibulandoEntity = await getData();
-  const unidadesCursosList = data.institutos.flatMap((instituto) =>
+  const campusInstitutos = data.campus.flatMap((campus) => campus.institutos);
+  const unidadesCursosList = campusInstitutos.flatMap((instituto) =>
     instituto.cursos.flatMap((curso) => ({
-      instituto: instituto.nome,
+      instituto: instituto.sigla,
       curso: curso.nome,
     }))
   );
