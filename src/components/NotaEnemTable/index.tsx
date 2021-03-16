@@ -51,36 +51,36 @@ const columns = [
 
   {
     field: "redação_c1",
-    headerName: "Redação C1",
-    width: 120,
+    headerName: "C1 Redação",
+    width: 80,
     valueFormatter: removeZero,
   },
 
   {
     field: "redação_c2",
-    headerName: "Redação C2",
-    width: 120,
+    headerName: "C2 Redação",
+    width: 80,
     valueFormatter: removeZero,
   },
 
   {
     field: "redação_c3",
-    headerName: "Redação C3",
-    width: 120,
+    headerName: "C3 Redação",
+    width: 80,
     valueFormatter: removeZero,
   },
 
   {
     field: "redação_c4",
-    headerName: "Redação C4",
-    width: 120,
+    headerName: "C4 Redação",
+    width: 80,
     valueFormatter: removeZero,
   },
 
   {
     field: "redação_c5",
-    headerName: "Redação C5",
-    width: 120,
+    headerName: "C5 Redação",
+    width: 80,
     valueFormatter: removeZero,
   },
 ];
@@ -90,7 +90,6 @@ type NotaTableType = {
 };
 
 const NotaTable = ({ notas }: NotaTableType) => {
-  console.log(notas);
   return (
     <div style={{ height: "80vh", width: "100%" }}>
       <DataGrid rows={notas} columns={columns} autoPageSize checkboxSelection />
