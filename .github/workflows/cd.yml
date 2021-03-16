@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: AWS
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
