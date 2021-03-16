@@ -1,16 +1,88 @@
-import { DataGrid } from "@material-ui/data-grid";
+import { DataGrid, ValueFormatterParams } from "@material-ui/data-grid";
 
 import { NotaEnemEntity } from "core/src/Entity";
 
+const removeZero = (params: ValueFormatterParams) => params.value || "-";
+
 const columns = [
+  { field: "ano", headerName: "Ano", width: 80 },
+  { field: "final", headerName: "Nota Final", width: 130 },
   { field: "modalidade", headerName: "Modalidade", width: 130 },
   {
     field: "lista_de_espera",
     headerName: "Ficou na lista de espera?",
-    width: 180,
+    width: 80,
   },
-  { field: "final", headerName: "Nota Final", width: 130 },
-  { field: "ano", headerName: "Ano", width: 130 },
+
+  {
+    field: "ciencias",
+    headerName: "Ciencias Naturais",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "matematica",
+    headerName: "Matematica e Ciencias Extas",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "linguas",
+    headerName: "Linguas",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "sociais",
+    headerName: "Ciencias Socias",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação",
+    headerName: "Redação",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação_c1",
+    headerName: "Redação C1",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação_c2",
+    headerName: "Redação C2",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação_c3",
+    headerName: "Redação C3",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação_c4",
+    headerName: "Redação C4",
+    width: 120,
+    valueFormatter: removeZero,
+  },
+
+  {
+    field: "redação_c5",
+    headerName: "Redação C5",
+    width: 120,
+    valueFormatter: removeZero,
+  },
 ];
 
 type NotaTableType = {
@@ -18,14 +90,10 @@ type NotaTableType = {
 };
 
 const NotaTable = ({ notas }: NotaTableType) => {
+  console.log(notas);
   return (
     <div style={{ height: "80vh", width: "100%" }}>
-      <DataGrid
-        rows={notas}
-        columns={columns}
-        pageSize={20}
-        checkboxSelection
-      />
+      <DataGrid rows={notas} columns={columns} autoPageSize checkboxSelection />
     </div>
   );
 };

@@ -20,12 +20,7 @@ type NotaTableType = {
 const NotaTable = ({ notas }: NotaTableType) => {
   return (
     <div style={{ height: "80vh", width: "100%" }}>
-      <DataGrid
-        rows={notas}
-        columns={columns}
-        pageSize={20}
-        checkboxSelection
-      />
+      <DataGrid rows={notas} columns={columns} autoPageSize checkboxSelection />
     </div>
   );
 };
