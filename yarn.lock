@@ -60,9 +60,9 @@
     "@hapi/hoek" "9.x.x"
 
 "@hapi/boom@9.x.x":
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-9.1.1.tgz#89e6f0e01637c2a4228da0d113e8157c93677b04"
-  integrity sha512-VNR8eDbBrOxBgbkddRYIe7+8DZ+vSbV6qlmaN2x7eWjsUjy2VmQgChkOKcVZIeupEZYj+I0dqNg430OhwzagjA==
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-9.1.2.tgz#48bd41d67437164a2d636e3b5bc954f8c8dc5e38"
+  integrity sha512-uJEJtiNHzKw80JpngDGBCGAmWjBtzxDCz17A9NO2zCi8LLBlb5Frpq4pXwyN+2JQMod4pKz5BALwyneCgDg89Q==
   dependencies:
     "@hapi/hoek" "9.x.x"
 
@@ -594,7 +594,7 @@ core-util-is@~1.0.0:
 
 "core@https://github.com/ManualDoVestibulando/core":
   version "1.0.0"
-  resolved "https://github.com/ManualDoVestibulando/core#68c7325dfbcf09a8cdc37a6e6d1ea1dd765249a5"
+  resolved "https://github.com/ManualDoVestibulando/core#0f6dbcc47395bacdbd12c5ebfe27c518134af5d4"
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -690,7 +690,7 @@ data-uri-to-buffer@3.0.1:
 
 "dataprovider@https://github.com/ManualDoVestibulando/dataprovider":
   version "1.0.0"
-  resolved "https://github.com/ManualDoVestibulando/dataprovider#e68a06d04ab89132f10a3fdb317033e348674c54"
+  resolved "https://github.com/ManualDoVestibulando/dataprovider#a740088d4b6ca8e74e0776a344a8f722d80d4875"
   dependencies:
     axios "^0.21.1"
     core "https://github.com/ManualDoVestibulando/core"

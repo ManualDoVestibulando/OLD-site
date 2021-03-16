@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import NotaTable from "../../../src/components/NotaFuvestTable";
+import NotaEnemTable from "../../../src/components/NotaEnemTable";
 
 import { getData } from "dataprovider/lib";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -8,27 +8,27 @@ import {
   CursoEntity,
   InstitutoEntity,
   ManualDoVestibulandoEntity,
-  NotaFuvestEntity,
+  NotaEnemEntity,
 } from "core/src/Entity";
 import Layout from "../../../src/components/Layout";
 
-type FuvestPageType = {
-  notas: NotaFuvestEntity[];
+type EnemPageType = {
+  notas: NotaEnemEntity[];
   curso: CursoEntity;
   instituto: InstitutoEntity;
 };
 
-const FuvestPage = ({ notas, curso, instituto }: FuvestPageType) => (
+const EnemPage = ({ notas, curso, instituto }: EnemPageType) => (
   <Layout>
     <Box my={4}>
       <Typography variant="h4" component="h1" gutterBottom>
-        {curso.nome} ({instituto.sigla}) - Fuvest
+        {curso.nome} ({instituto.sigla}) - Enem
       </Typography>
     </Box>
-    <NotaTable notas={notas} />
+    <NotaEnemTable notas={notas} />
   </Layout>
 );
-export default FuvestPage;
+export default EnemPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data: ManualDoVestibulandoEntity = await getData();
@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     (instituto) => instituto.sigla == params.instituto
   );
   const curso = instituto.cursos.find((curso) => curso.nome == params.curso);
-  const notas = curso.notas.fuvest;
+  const notas = curso.notas.enem;
 
   return {
     props: {

@@ -48,6 +48,11 @@ const CursoPage = ({ curso, instituto }: CursoPageType) => {
       href: `/${instituto.sigla}/${curso.nome}/notas-fuvest`,
       description: "Notas e classificações dos ingressantes pela fuvest",
     },
+    {
+      title: "Notas Enem",
+      href: `/${instituto.sigla}/${curso.nome}/notas-enem`,
+      description: "Notas e classificações dos ingressantes pelo sisu",
+    },
   ];
   return (
     <Layout>
