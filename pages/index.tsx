@@ -27,7 +27,7 @@ const Index = () => {
           component="p"
         >
           Bem vindos novos uspianos! Consulte sua situação na fuvest{" "}
-          <Link href="https://www.fuvest.br/fuvest-divulga-lista-de-convocados-em-1a-chamada-no-concurso-vestibular-2021/">
+          <Link href="https://drive.google.com/file/d/1WcusIwwg37FS_awFRwWaH4-uFHiftZDp/view">
             aqui
           </Link>
         </Typography>
