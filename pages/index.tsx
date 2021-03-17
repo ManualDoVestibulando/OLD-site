@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Layout from "../src/components/Layout";
-import { Grid, Paper, makeStyles } from "@material-ui/core";
+import { Grid, Paper, Link, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -26,7 +26,10 @@ const Index = () => {
           color="textSecondary"
           component="p"
         >
-          Tudo que você já quis saber sobre o ingresso na USP, em um só lugar.
+          Bem vindos novos uspianos! Consulte sua situação na fuvest{" "}
+          <Link href="https://www.fuvest.br/fuvest-divulga-lista-de-convocados-em-1a-chamada-no-concurso-vestibular-2021/">
+            aqui
+          </Link>
         </Typography>
       </Paper>
     </Layout>
