@@ -26,10 +26,11 @@ const Index = () => {
           color="textSecondary"
           component="p"
         >
-          Bem vindos novos uspianos! Consulte sua situação na fuvest{" "}
-          <Link href="https://drive.google.com/file/d/1WcusIwwg37FS_awFRwWaH4-uFHiftZDp/view">
+          Bem vindos novos USPianos! Contribua com suas notas para o nosso site{" "}
+          <Link href="https://forms.gle/ZzYhFkFKSYLDDFnM6">
             aqui
           </Link>
+          . Não se esqueça de entrar com seu email USP!
         </Typography>
       </Paper>
     </Layout>
